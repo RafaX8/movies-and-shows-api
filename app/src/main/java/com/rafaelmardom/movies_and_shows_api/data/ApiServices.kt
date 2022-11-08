@@ -13,7 +13,7 @@ interface ApiServices {
 
     @GET("movies")
     fun getMoviesFeed(): Call<List<MovieApiModel>>
-    @GET("movies?{movieId}")
+    @GET("movies/{movieId}")
     fun getMovieById(@Path("movieId") movieId:String): Call<MovieApiModel>
 
 }
