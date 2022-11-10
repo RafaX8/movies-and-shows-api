@@ -14,7 +14,6 @@ class GetMovieDetailUseCase (private val movieRepository: MovieRepository) {
             movie.year,
             movie.poster
             )
-
     }
 
     data class MovieDetail (
@@ -27,4 +26,3 @@ class GetMovieDetailUseCase (private val movieRepository: MovieRepository) {
         val poster: String
     )
 }
-
