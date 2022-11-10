@@ -30,6 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -40,6 +43,10 @@ dependencies {
 
     def retrofitLatestVersion=  '2.9.0'
     def gsonVersion= '2.10'
+    def activitiesVersion = '1.6.1'
+    def lifecycleExtensionsVersion = '2.2.0'
+    def coroutinesVersion = '1.6.1'
+    def lifecycle_version = "2.5.1"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -52,6 +59,19 @@ dependencies {
     implementation "com.google.code.gson:gson:$gsonVersion"
     // RetroFit-Gson converter
     implementation "com.squareup.retrofit2:converter-gson:$retrofitLatestVersion"
+
+    // Activities
+    implementation "androidx.activity:activity:$activitiesVersion"
+    implementation "androidx.activity:activity-ktx:$activitiesVersion"
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion"
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 
     // TESTS
     testImplementation 'junit:junit:4.13.2'
