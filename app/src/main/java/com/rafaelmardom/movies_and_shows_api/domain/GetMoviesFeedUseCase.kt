@@ -3,9 +3,7 @@ package com.rafaelmardom.movies_and_shows_api.domain
 class GetMoviesFeedUseCase (private val movieRepository: MovieRepository) {
 
     fun execute () : List<MovieFeed> {
-        val movies = movieRepository.getAll()
-
-        return movies.map {
+        return movieRepository.getAll().map {
             MovieFeed(
                 it.id,
                 it.title,
