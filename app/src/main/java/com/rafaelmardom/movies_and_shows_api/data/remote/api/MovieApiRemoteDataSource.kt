@@ -8,14 +8,14 @@ class MovieApiRemoteDataSource (
     val apiClient: ApiClient
 ) : MovieRemoteDataSource {
 
-    override fun getMovies(): List<Movie> {
+    override fun getAll(): List<Movie> {
         val movies = apiClient.getMovies()
         return movies.map{
             it.toDomain()
         }
     }
 
-    override fun getMovieById(movieId: String): Movie? {
+    override fun getById(movieId: String): Movie? {
         return apiClient.getMovieById(movieId)?.toDomain()
     }
 }

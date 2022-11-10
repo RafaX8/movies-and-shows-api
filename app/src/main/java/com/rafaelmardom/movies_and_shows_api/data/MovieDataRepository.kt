@@ -18,12 +18,12 @@ class MovieDataRepository(
             remoteSource.getMovies()
         }
         */
-        return remoteSource.getMovies()
+        return remoteSource.getAll()
     }
 
     override fun getById(movieId: String): Movie? {
         // ONLY REMOTE YET --> Change when Local Data is finished
         // return localSource.getMovieById(movieId) ?: remoteSource.getMovieById(movieId)
-        return remoteSource.getMovieById(movieId)
+        return remoteSource.getById(movieId)
     }
 }
