@@ -24,4 +24,3 @@ class GetMoviesFeedUseCase (private val movieRepository: MovieRepository) {
         val poster: String
     )
 }
-
