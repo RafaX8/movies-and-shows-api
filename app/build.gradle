@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -41,6 +42,8 @@ dependencies {
     def retrofitLatestVersion=  '2.9.0'
     def gsonVersion= '2.10'
 
+    def firebaseVersion = '31.0.2'
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
@@ -52,6 +55,11 @@ dependencies {
     implementation "com.google.code.gson:gson:$gsonVersion"
     // RetroFit-Gson converter
     implementation "com.squareup.retrofit2:converter-gson:$retrofitLatestVersion"
+
+    //Firebase
+    implementation platform("com.google.firebase:firebase-bom:$firebaseVersion")
+    //FirebaseRealtime
+    implementation 'com.google.firebase:firebase-database-ktx'
 
     // TESTS
     testImplementation 'junit:junit:4.13.2'
