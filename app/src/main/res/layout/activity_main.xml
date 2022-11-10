@@ -1,9 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- I guess this should be wrapped inside a <layout> mark -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/papaya_whip">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/app_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/prussian_blue"
+        android:paddingStart="@dimen/feed_padding"
+        android:paddingBottom="@dimen/feed_padding"
+        android:paddingEnd="@dimen/feed_padding">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/title"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/header_top_margin"/>
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitle"
+            android:textColor="@color/white"
+            android:textSize="@dimen/subtitle"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/subtitle"
+            android:layout_marginTop="@dimen/header_top_margin">
+
+            <EditText
+                android:id="@+id/search_bar"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.77"
+                android:layout_height="@dimen/title"
+                android:textSize="@dimen/subtitle"
+                android:hint="@string/search_bar_hint"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <!-- TODO: MAKE IT SO THE BUTTON IS AS TALL AS THE SEARCH BAR -->
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.23"
+                android:layout_height="@dimen/title"
+                android:text="@string/search_button"
+                android:textAllCaps="true"
+                android:textSize="@dimen/subtitle"
+                app:layout_constraintStart_toEndOf="@id/search_bar"
+                app:layout_constraintTop_toTopOf="@id/search_bar"
+                android:backgroundTint="@color/air_superiority_blue"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/movies_feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_header"
+        android:padding="@dimen/feed_padding">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/view_item_movie_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

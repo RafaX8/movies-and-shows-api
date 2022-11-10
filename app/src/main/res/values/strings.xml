@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">movies-and-shows-api</string>
+    <string name="title">Movie app: List of movies</string>
+    <string name="subtitle">Made by Rafael Martín</string>
+    <string name="search_bar_hint">search your favourite movie!</string>
+    <string name="search_button">search</string>
 </resources>
