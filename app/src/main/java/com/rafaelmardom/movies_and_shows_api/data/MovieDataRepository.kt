@@ -1,29 +1,30 @@
 package com.rafaelmardom.movies_and_shows_api.data
 
+import android.util.Log
+import com.rafaelmardom.movies_and_shows_api.data.local.MovieLocalDataSource
 import com.rafaelmardom.movies_and_shows_api.data.remote.MovieRemoteDataSource
 import com.rafaelmardom.movies_and_shows_api.domain.Movie
 import com.rafaelmardom.movies_and_shows_api.domain.MovieRepository
 
 class MovieDataRepository(
-    // private val localSource: MovieLocalDataSource,
+    private val localSource: MovieLocalDataSource,
     private val remoteSource: MovieRemoteDataSource
 ) : MovieRepository{
 
     override fun getAll(): List<Movie> {
-        // ONLY REMOTE YET --> Change when Local Data is finished
-        /*
-        return if (localSource.getMovies().isNotEmpty()){
-            localSource.getMovies()
+
+        if (localSource.getAll().isNotEmpty()){
+            Log.d("@dev", "Local")
+            return localSource.getAll()
         }else{
-            remoteSource.getMovies()
+            Log.d("@dev", "Remote")
+            var remoteList = remoteSource.getAll()
+            localSource.saveAll(remoteList)
+            return remoteList
         }
-        */
-        return remoteSource.getAll()
     }
 
     override fun getById(movieId: String): Movie? {
-        // ONLY REMOTE YET --> Change when Local Data is finished
-        // return localSource.getMovieById(movieId) ?: remoteSource.getMovieById(movieId)
-        return remoteSource.getById(movieId)
+        return localSource.getById(movieId) ?: remoteSource.getById(movieId)
     }
 }
