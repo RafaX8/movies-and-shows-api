@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/movieFeed">
+
+    <fragment
+        android:id="@+id/movieFeed"
+        android:name="com.rafaelmardom.movies_and_shows_api.presentation.MovieFeedFragment"
+        android:label="label"
+        tools:layout="@layout/fragment_movie_feed">
+    </fragment>
+
+</navigation>
