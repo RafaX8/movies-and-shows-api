@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -40,6 +41,7 @@ dependencies {
 
     def retrofitLatestVersion=  '2.9.0'
     def gsonVersion= '2.10'
+    def room_version = "2.4.3"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -52,6 +54,10 @@ dependencies {
     implementation "com.google.code.gson:gson:$gsonVersion"
     // RetroFit-Gson converter
     implementation "com.squareup.retrofit2:converter-gson:$retrofitLatestVersion"
+
+    //Room Database
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     // TESTS
     testImplementation 'junit:junit:4.13.2'
