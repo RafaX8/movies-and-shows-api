@@ -30,8 +30,9 @@ class MovieFactory {
             getMovieRepository(context)
         )
     }
-    fun getMovieRepository(context: Context): MovieRepository {
+    private fun getMovieRepository(context: Context): MovieRepository {
         return MovieDataRepository(
+            // Cambiar LocalSource a ROOM DB cuando esté correctamente mergeado
             MovieXmlLocalDataSource(
                 //getSharedPreferences(context, "moviesSharedPreferences")
                 context.getSharedPreferences("movies", Context.MODE_PRIVATE)

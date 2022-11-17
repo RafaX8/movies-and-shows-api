@@ -2,7 +2,6 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/small_spacing">
@@ -16,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -36,10 +35,11 @@
                 android:text="@string/sample_title"
                 android:textSize="@dimen/title"
                 android:textColor="@color/white"
+                android:textStyle="bold"
                 android:maxLines="2"
                 android:ellipsize="end"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/movie_genre"/>
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/movie_genre"
@@ -50,21 +50,37 @@
                 android:textColor="@color/white"
                 android:maxLines="1"
                 android:ellipsize="end"
+                android:textStyle="italic"
+                android:layout_marginTop="@dimen/spacing_vertical"
                 app:layout_constraintStart_toStartOf="@id/movie_title"
                 app:layout_constraintTop_toBottomOf="@id/movie_title"/>
-            <!--
-            <TextView
-                android:id="@+id/movie_rating"
+
+            <LinearLayout
+                android:id="@+id/rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sample_rating"
-                android:textSize="@dimen/subtitle"
-                android:textColor="@color/white"
-                android:maxLines="1"
-                android:ellipsize="end"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movie_title"/>
-            -->
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/movie_genre">
+
+
+                <TextView
+                    android:id="@+id/movie_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sample_rating"
+                    android:textSize="@dimen/subtitle"
+                    android:textColor="@color/white"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <ImageView
+                    android:layout_width="@dimen/movie_img_size_s"
+                    android:layout_height="@dimen/movie_img_size_xs"
+                    android:src="@drawable/ic_star"
+                    android:layout_gravity="center" />
+
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

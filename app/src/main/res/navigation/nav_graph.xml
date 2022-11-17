@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/movieFeed"
         android:name="com.rafaelmardom.movies_and_shows_api.presentation.MovieFeedFragment"
-        android:label="label"
         tools:layout="@layout/fragment_movie_feed">
     </fragment>
 

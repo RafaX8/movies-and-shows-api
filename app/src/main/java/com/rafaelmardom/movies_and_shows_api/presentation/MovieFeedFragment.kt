@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rafaelmardom.movies_and_shows_api.databinding.FragmentMovieFeedBinding
-import com.rafaelmardom.movies_and_shows_api.domain.GetMoviesFeedUseCase
-import com.rafaelmardom.movies_and_shows_api.domain.MovieRepository
 import com.rafaelmardom.movies_and_shows_api.presentation.adapter.MovieAdapter
 
 class MovieFeedFragment: Fragment() {
