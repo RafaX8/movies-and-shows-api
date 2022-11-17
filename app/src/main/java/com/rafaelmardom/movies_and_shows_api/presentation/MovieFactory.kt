@@ -21,6 +21,7 @@ class MovieFactory {
     }
     */
 
+    // --------------------------------FEED-----------------------------------
     fun getMoviesViewModel(applicationContext: Context) : MovieFeedViewModel {
         return MovieFeedViewModel(getMovieFeedUseCase(applicationContext))
     }
@@ -30,6 +31,17 @@ class MovieFactory {
             getMovieRepository(context)
         )
     }
+    // -------------------------------------------------------------------
+    // --------------------------------DETAIL-----------------------------------
+    /*
+    fun getMoviesDetailViewModel(applicationContext: Context) : MovieDetailViewModel {
+        //TODO
+    }
+    private fun getMovieDetailUseCase(context: Context): GetMovieDetailUseCase {
+        //TODO
+    }
+     */
+    // -------------------------------------------------------------------
     private fun getMovieRepository(context: Context): MovieRepository {
         return MovieDataRepository(
             // Cambiar LocalSource a ROOM DB cuando esté correctamente mergeado

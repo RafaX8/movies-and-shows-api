@@ -9,6 +9,14 @@
         android:id="@+id/movieFeed"
         android:name="com.rafaelmardom.movies_and_shows_api.presentation.MovieFeedFragment"
         tools:layout="@layout/fragment_movie_feed">
+        <action
+            android:id="@+id/action_movieFeed_to_movieDetail"
+            app:destination="@id/movieDetail" />
     </fragment>
 
+    <fragment
+        android:id="@+id/movieDetail"
+        android:name="com.rafaelmardom.movies_and_shows_api.presentation.MovieDetailFragment"
+        tools:layout="@layout/view_item_movie_detail">
+    </fragment>
 </navigation>
