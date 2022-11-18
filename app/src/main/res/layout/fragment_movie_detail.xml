@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/view_item_movie_detail"/>
+    <include
+        android:id="@+id/movie_detail_fragment"
+        layout="@layout/view_item_movie_detail"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

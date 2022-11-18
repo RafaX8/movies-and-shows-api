@@ -1,12 +1,15 @@
 package com.rafaelmardom.movies_and_shows_api.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.rafaelmardom.movies_and_shows_api.R
 import com.rafaelmardom.movies_and_shows_api.databinding.FragmentMovieFeedBinding
 import com.rafaelmardom.movies_and_shows_api.presentation.adapter.MovieAdapter
 
@@ -43,6 +46,9 @@ class MovieFeedFragment: Fragment() {
                         LinearLayoutManager.VERTICAL,
                         false
                     )
+                movieAdapter.setItemClick {
+                    navigateToDetail(it.toString())
+                }
             }
         }
     }
@@ -54,4 +60,8 @@ class MovieFeedFragment: Fragment() {
         viewModel.movieFeedData.observe(viewLifecycleOwner, movieFeedState)
     }
 
+    private fun navigateToDetail(movieId: String) {
+        Log.d("@dev", "navigate")
+        findNavController().navigate(MovieFeedFragmentDirections.actionMovieFeedToMovieDetail(movieId))
+    }
 }

@@ -5,11 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rafaelmardom.movies_and_shows_api.R
 import com.rafaelmardom.movies_and_shows_api.domain.GetMovieDetailUseCase
-import com.rafaelmardom.movies_and_shows_api.domain.GetMoviesFeedUseCase
 
 class MovieDetailAdapter: RecyclerView.Adapter<MovieDetailViewHolder>() {
 
     private val dataItems = mutableListOf<GetMovieDetailUseCase.MovieDetail>()
+
+    fun setDataItems(movieDetails: List<GetMovieDetailUseCase.MovieDetail>) {
+        dataItems.clear()
+        dataItems.addAll(movieDetails)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieDetailViewHolder {
         val view = LayoutInflater

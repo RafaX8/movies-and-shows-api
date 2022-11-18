@@ -6,6 +6,7 @@ import com.rafaelmardom.movies_and_shows_api.data.ApiClient
 import com.rafaelmardom.movies_and_shows_api.data.MovieDataRepository
 import com.rafaelmardom.movies_and_shows_api.data.local.xml.MovieXmlLocalDataSource
 import com.rafaelmardom.movies_and_shows_api.data.remote.api.MovieApiRemoteDataSource
+import com.rafaelmardom.movies_and_shows_api.domain.GetMovieDetailUseCase
 import com.rafaelmardom.movies_and_shows_api.domain.GetMoviesFeedUseCase
 import com.rafaelmardom.movies_and_shows_api.domain.MovieRepository
 
@@ -33,14 +34,12 @@ class MovieFactory {
     }
     // -------------------------------------------------------------------
     // --------------------------------DETAIL-----------------------------------
-    /*
     fun getMoviesDetailViewModel(applicationContext: Context) : MovieDetailViewModel {
-        //TODO
+        return MovieDetailViewModel(getMovieDetailUseCase(applicationContext))
     }
     private fun getMovieDetailUseCase(context: Context): GetMovieDetailUseCase {
-        //TODO
+        return GetMovieDetailUseCase(getMovieRepository(context))
     }
-     */
     // -------------------------------------------------------------------
     private fun getMovieRepository(context: Context): MovieRepository {
         return MovieDataRepository(

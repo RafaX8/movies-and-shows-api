@@ -9,6 +9,11 @@ import com.rafaelmardom.movies_and_shows_api.domain.GetMoviesFeedUseCase
 class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
 
     private val dataItems = mutableListOf<GetMoviesFeedUseCase.MovieFeed>()
+    private var itemClick: ((Int) -> Unit)? = null
+
+    fun setItemClick(onClick: (Int) -> Unit) {
+        this.itemClick = onClick
+    }
 
     fun setDataItems(movies: List<GetMoviesFeedUseCase.MovieFeed>) {
         dataItems.clear()
@@ -29,7 +34,7 @@ class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(dataItems[position])
+        holder.bind(dataItems[position], itemClick)
     }
 
     override fun getItemCount() = dataItems.size

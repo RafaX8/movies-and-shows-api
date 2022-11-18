@@ -14,11 +14,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupBinding()
+        /*
         //<!-- TEST -> BORRAR DESPUES -->
         thread {
             startActivity(Intent(this, MovieDetailFragment::class.java))
         }
         //<!-- TEST -->
+         */
     }
 
     private fun setupBinding() {
