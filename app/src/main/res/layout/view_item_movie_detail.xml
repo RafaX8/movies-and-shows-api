@@ -27,7 +27,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/movie_poster"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_spacing"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
 
             <ImageView
                 android:id="@+id/movie_poster_card"
-                android:layout_width="@dimen/movie_img_size_l"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/movie_img_size_xl"
                 android:src="@drawable/ic_launcher_background"
                 android:scaleType="fitXY"/>
@@ -48,15 +48,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sample_plot"
-            app:layout_constraintStart_toEndOf="@id/movie_poster"
-            app:layout_constraintTop_toTopOf="@id/movie_poster"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_poster"/>
 
         <TextView
             android:id="@+id/movie_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sample_year"
-            app:layout_constraintStart_toEndOf="@id/movie_poster"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/movie_plot"/>
 
         <TextView
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sample_genre"
-            app:layout_constraintStart_toEndOf="@id/movie_poster"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/movie_year"/>
 
         <TextView
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sample_rating"
-            app:layout_constraintStart_toEndOf="@id/movie_poster"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/movie_genre"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

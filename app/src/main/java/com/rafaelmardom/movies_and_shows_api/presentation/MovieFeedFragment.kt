@@ -47,7 +47,7 @@ class MovieFeedFragment: Fragment() {
                         false
                     )
                 movieAdapter.setItemClick {
-                    navigateToDetail(it.toString())
+                    navigateToDetail(it)
                 }
             }
         }

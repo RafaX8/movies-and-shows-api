@@ -12,7 +12,7 @@ class MovieViewHolder(
 ) : RecyclerView.ViewHolder(
     view
 ){
-    fun bind (movie : GetMoviesFeedUseCase.MovieFeed, onClick: ((Int) -> Unit)?) {
+    fun bind (movie : GetMoviesFeedUseCase.MovieFeed, onClick: ((String) -> Unit)?) {
         val binding = ViewItemMovieFeedBinding.bind(view)
         binding.movieTitle.text = movie.title
         binding.movieGenre.text = movie.genre
@@ -22,7 +22,7 @@ class MovieViewHolder(
         view.setOnClickListener {
             Log.d("@dev", "entra")
             //onClick?.invoke(movie.id) // NO PUEDO PONER ESTO ?
-            onClick?.invoke(it.id)
+            onClick?.invoke(movie.id)
         }
     }
 }

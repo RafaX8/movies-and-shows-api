@@ -5,17 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.rafaelmardom.app.extensions.loadUrl
-import com.rafaelmardom.movies_and_shows_api.R
 import com.rafaelmardom.movies_and_shows_api.databinding.FragmentMovieDetailBinding
-import com.rafaelmardom.movies_and_shows_api.presentation.adapter.MovieDetailAdapter
+import com.rafaelmardom.movies_and_shows_api.domain.GetMovieDetailUseCase
 
-//<!-- TEST -> BORRAR DESPUES -->
 class MovieDetailFragment : Fragment() {
 
     private var viewModel: MovieDetailViewModel? = null
     private var binding: FragmentMovieDetailBinding? = null
-    private val movieDetailAdapter = MovieDetailAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,27 +21,33 @@ class MovieDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMovieDetailBinding.inflate(inflater)
-        setupView()
         return binding?.root
     }
 
-    private fun setupView(){
-        binding?.apply {
-            movieDetailFragment.movieGenre.text = getText(R.string.sample_genre)
-            movieDetailFragment.moviePlot.text = getText(R.string.sample_plot)
-            movieDetailFragment.movieRating.text = getText(R.string.sample_rating)
-            movieDetailFragment.movieYear.text = getText(R.string.sample_year)
-            movieDetailFragment.movieTitle.text = getText(R.string.sample_title)
-            movieDetailFragment.moviePosterCard.loadUrl("")
-        }
-    }
-
-    // TERMINAR ESTO
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = MovieFactory().getMoviesDetailViewModel(requireContext())
-        // setupObservers ()  ??????
-        //viewModel?.loadMovieDetails(arguments?.getString("key_movie_id") ?: "")
+        setupObservers ()
+        viewModel?.loadMovieDetails(arguments?.getString("movieId") ?: "0") // ESTO ES LO QUE DA ERROR
     }
 
+    private fun setupObservers() {
+        val movieDetailsState = Observer<MovieDetailViewModel.MovieDetailState> { state ->
+            state.movieDetail?.let {
+                bind(it)
+            }
+        }
+        viewModel?.movieDetailState?.observe(viewLifecycleOwner, movieDetailsState)
+    }
+
+    private fun bind(model: GetMovieDetailUseCase.MovieDetail) {
+        binding?.apply {
+            movieDetailFragment.movieGenre.text = model.genre
+            movieDetailFragment.moviePlot.text = model.plot
+            movieDetailFragment.movieYear.text = model.year
+            movieDetailFragment.movieTitle.text = model.title
+            movieDetailFragment.moviePosterCard.loadUrl(model.poster)
+            movieDetailFragment.movieRating.text = model.rating.toString()
+        }
+    }
 }

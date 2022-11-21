@@ -9,9 +9,9 @@ import com.rafaelmardom.movies_and_shows_api.domain.GetMoviesFeedUseCase
 class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
 
     private val dataItems = mutableListOf<GetMoviesFeedUseCase.MovieFeed>()
-    private var itemClick: ((Int) -> Unit)? = null
+    private var itemClick: ((String) -> Unit)? = null
 
-    fun setItemClick(onClick: (Int) -> Unit) {
+    fun setItemClick(onClick: (String) -> Unit) {
         this.itemClick = onClick
     }
 
