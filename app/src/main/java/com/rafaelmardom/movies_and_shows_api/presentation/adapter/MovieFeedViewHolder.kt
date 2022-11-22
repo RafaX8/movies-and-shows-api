@@ -7,7 +7,7 @@ import com.rafaelmardom.app.extensions.loadUrl
 import com.rafaelmardom.movies_and_shows_api.databinding.ViewItemMovieFeedBinding
 import com.rafaelmardom.movies_and_shows_api.domain.GetMoviesFeedUseCase
 
-class MovieViewHolder(
+class MovieFeedViewHolder(
     private val view: View
 ) : RecyclerView.ViewHolder(
     view

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rafaelmardom.movies_and_shows_api.R
 import com.rafaelmardom.movies_and_shows_api.domain.GetMoviesFeedUseCase
 
-class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter: RecyclerView.Adapter<MovieFeedViewHolder>() {
 
     private val dataItems = mutableListOf<GetMoviesFeedUseCase.MovieFeed>()
     private var itemClick: ((String) -> Unit)? = null
@@ -21,7 +21,7 @@ class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieFeedViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(
@@ -30,10 +30,10 @@ class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
                 false
             )
 
-        return MovieViewHolder(view)
+        return MovieFeedViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieFeedViewHolder, position: Int) {
         holder.bind(dataItems[position], itemClick)
     }
 
