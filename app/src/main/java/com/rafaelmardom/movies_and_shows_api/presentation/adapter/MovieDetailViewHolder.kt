@@ -19,7 +19,7 @@ class MovieDetailViewHolder(
         binding.moviePlot.text = movie.plot
         binding.movieYear.text = movie.year
         // ANTES DE HACER ESTO: CREAR UNA CLASE PARA USAR EL REPOSITORIO GLIDE.
-        binding.moviePosterCard.loadUrl(movie.poster)
+        binding.moviePoster.loadUrl(movie.poster)
 
     }
 }

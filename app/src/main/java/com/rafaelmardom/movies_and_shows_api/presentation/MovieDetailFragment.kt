@@ -46,7 +46,7 @@ class MovieDetailFragment : Fragment() {
             movieDetailFragment.moviePlot.text = model.plot
             movieDetailFragment.movieYear.text = model.year
             movieDetailFragment.movieTitle.text = model.title
-            movieDetailFragment.moviePosterCard.loadUrl(model.poster)
+            movieDetailFragment.moviePoster.loadUrl(model.poster)
             movieDetailFragment.movieRating.text = model.rating.toString()
         }
     }

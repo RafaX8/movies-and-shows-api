@@ -13,6 +13,12 @@
     <dimen name="block_size_m">32dp</dimen>
     <dimen name="block_size_s">16dp</dimen>
 
+    <!-- Corner Radius -->
+    <dimen name="corner_radius_xl">64dp</dimen>
+    <dimen name="corner_radius_l">48dp</dimen>
+    <dimen name="corner_radius_m">32dp</dimen>
+    <dimen name="corner_radius_s">16dp</dimen>
+
     <!-- Font -->
     <dimen name="title">24sp</dimen>
     <dimen name="subtitle">16sp</dimen>
@@ -22,6 +28,7 @@
     <dimen name="text_size_s">8sp</dimen>
 
     <!-- Images -->
+    <dimen name="movie_img_size_xxl">512dp</dimen>
     <dimen name="movie_img_size_xl">256dp</dimen>
     <dimen name="movie_img_size_l">128dp</dimen>
     <dimen name="movie_img_size_m">64dp</dimen>
