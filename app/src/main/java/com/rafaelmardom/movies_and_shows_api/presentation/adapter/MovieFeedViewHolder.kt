@@ -16,12 +16,10 @@ class MovieFeedViewHolder(
         val binding = ViewItemMovieFeedBinding.bind(view)
         binding.movieTitle.text = movie.title
         binding.movieGenre.text = movie.genre
-        binding.movieRating.text = movie.rating.toString() // Este es double
-        // ANTES DE HACER ESTO: CREAR UNA CLASE PARA USAR EL REPOSITORIO GLIDE.
+        binding.movieRating.text = movie.rating.toString()
         binding.moviePoster.loadUrl(movie.poster)
         view.setOnClickListener {
             Log.d("@dev", "entra")
-            //onClick?.invoke(movie.id) // NO PUEDO PONER ESTO ?
             onClick?.invoke(movie.id)
         }
     }

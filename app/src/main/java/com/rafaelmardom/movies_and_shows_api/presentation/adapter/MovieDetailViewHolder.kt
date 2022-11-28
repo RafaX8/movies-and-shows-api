@@ -15,10 +15,9 @@ class MovieDetailViewHolder(
         val binding = ViewItemMovieDetailBinding.bind(view)
         binding.movieTitle.text = movie.title
         binding.movieGenre.text = movie.genre
-        binding.movieRating.text = movie.rating.toString() // Este es double
+        binding.movieRating.text = movie.rating.toString()
         binding.moviePlot.text = movie.plot
         binding.movieYear.text = movie.year
-        // ANTES DE HACER ESTO: CREAR UNA CLASE PARA USAR EL REPOSITORIO GLIDE.
         binding.moviePoster.loadUrl(movie.poster)
 
     }

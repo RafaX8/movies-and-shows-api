@@ -11,17 +11,6 @@ import com.rafaelmardom.movies_and_shows_api.domain.GetMoviesFeedUseCase
 import com.rafaelmardom.movies_and_shows_api.domain.MovieRepository
 
 class MovieFactory {
-    /*
-    private fun getApiClient() = ApiClient()
-
-    private fun getSharedPreferences(
-        context: Context,
-        nameSharedPreferences: String
-    ): SharedPreferences {
-        return context.getSharedPreferences(nameSharedPreferences, Context.MODE_PRIVATE)
-    }
-    */
-
     // --------------------------------FEED-----------------------------------
     fun getMoviesViewModel(applicationContext: Context) : MovieFeedViewModel {
         return MovieFeedViewModel(getMovieFeedUseCase(applicationContext))
@@ -45,10 +34,8 @@ class MovieFactory {
         return MovieDataRepository(
             // Cambiar LocalSource a ROOM DB cuando esté correctamente mergeado
             MovieXmlLocalDataSource(
-                //getSharedPreferences(context, "moviesSharedPreferences")
                 context.getSharedPreferences("movies", Context.MODE_PRIVATE)
             ),
-            //MovieApiRemoteDataSource(getApiClient())
             MovieApiRemoteDataSource(
                 ApiClient()
             )

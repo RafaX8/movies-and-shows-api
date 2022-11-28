@@ -28,16 +28,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <!-- TEST -> BORRAR DESPUES -->
-        <activity
-            android:name=".presentation.MovieDetailFragment"
-            android:exported="true">
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <!-- TEST -->
     </application>
 
 </manifest>
