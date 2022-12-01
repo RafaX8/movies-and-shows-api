@@ -28,7 +28,7 @@ class MovieDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = MovieFactory().getMoviesDetailViewModel(requireContext())
         setupObservers ()
-        viewModel?.loadMovieDetails(arguments?.getString("movieId") ?: "0")
+        viewModel?.loadMovieDetails(arguments?.getString("movieId") ?: "error")
     }
 
     private fun setupObservers() {

@@ -22,7 +22,8 @@
         <argument
             android:name="movieId"
             app:argType="string"
-            app:nullable="false">
+            app:nullable="false"
+            android:defaultValue="error">
 
         </argument>
 

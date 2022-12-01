@@ -19,7 +19,6 @@ class MovieFeedViewHolder(
         binding.movieRating.text = movie.rating.toString()
         binding.moviePoster.loadUrl(movie.poster)
         view.setOnClickListener {
-            Log.d("@dev", "entra")
             onClick?.invoke(movie.id)
         }
     }
