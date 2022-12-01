@@ -21,12 +21,15 @@ class MovieFeedViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             val moviesFeed = getMoviesFeedUseCase.execute()
             movieFeedData.postValue(
-                MovieFeedState(moviesFeed)
+                MovieFeedState(moviesFeed,
+                    true
+                ),
             )
         }
     }
 
     data class MovieFeedState(
-        val moviesFeed: List<GetMoviesFeedUseCase.MovieFeed> = emptyList()
+        val moviesFeed: List<GetMoviesFeedUseCase.MovieFeed> = emptyList(),
+        var isLoading : Boolean = false
     )
 }

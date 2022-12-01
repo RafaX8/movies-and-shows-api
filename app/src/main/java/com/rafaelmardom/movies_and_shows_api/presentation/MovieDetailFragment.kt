@@ -42,12 +42,12 @@ class MovieDetailFragment : Fragment() {
 
     private fun bind(model: GetMovieDetailUseCase.MovieDetail) {
         binding?.apply {
-            movieDetailFragment.movieGenre.text = model.genre
-            movieDetailFragment.moviePlot.text = model.plot
-            movieDetailFragment.movieYear.text = model.year
-            movieDetailFragment.movieTitle.text = model.title
-            movieDetailFragment.moviePoster.loadUrl(model.poster)
-            movieDetailFragment.movieRating.text = model.rating.toString()
+            movieGenre.text = model.genre
+            moviePlot.text = model.plot
+            movieYear.text = model.year
+            movieTitle.text = model.title
+            moviePoster.loadUrl(model.poster)
+            movieRating.text = model.rating.toString()
         }
     }
 }
