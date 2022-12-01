@@ -56,6 +56,7 @@ dependencies {
     def fragmentsVersion = '1.5.4'
     def nav_version = "2.5.3"
     def glideVersion = '4.14.2'
+    def skeletonVersion = '4.0.0'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -90,7 +91,8 @@ dependencies {
     //Glide image<->url converter
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
-
+    //Skeleton
+    implementation "com.faltenreich:skeletonlayout:$skeletonVersion"
     // TESTS
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

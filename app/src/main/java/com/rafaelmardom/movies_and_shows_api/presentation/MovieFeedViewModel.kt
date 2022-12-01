@@ -22,7 +22,7 @@ class MovieFeedViewModel(
             val moviesFeed = getMoviesFeedUseCase.execute()
             movieFeedData.postValue(
                 MovieFeedState(moviesFeed,
-                    true
+                    false
                 ),
             )
         }
@@ -30,6 +30,6 @@ class MovieFeedViewModel(
 
     data class MovieFeedState(
         val moviesFeed: List<GetMoviesFeedUseCase.MovieFeed> = emptyList(),
-        var isLoading : Boolean = false
+        var isLoading : Boolean = true
     )
 }

@@ -16,15 +16,20 @@ class MovieDetailViewModel(
     }
 
     fun loadMovieDetails(movieId: String){
-        movieDetailState.value = MovieDetailState()
+        movieDetailState.value = MovieDetailState(isLoading = true)
         viewModelScope.launch (Dispatchers.IO) {
             getMovieDetailUseCase.execute(movieId).apply {
-                movieDetailState.postValue(MovieDetailState(this))
+                movieDetailState.postValue(MovieDetailState(
+                    this,
+                    false
+                    )
+                )
             }
         }
     }
 
     data class MovieDetailState(
-        val movieDetail: GetMovieDetailUseCase.MovieDetail? = null
+        val movieDetail: GetMovieDetailUseCase.MovieDetail? = null,
+        val isLoading : Boolean = true
     )
 }

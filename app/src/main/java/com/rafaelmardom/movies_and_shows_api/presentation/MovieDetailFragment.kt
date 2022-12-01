@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.faltenreich.skeletonlayout.Skeleton
 import com.rafaelmardom.app.extensions.loadUrl
 import com.rafaelmardom.movies_and_shows_api.databinding.FragmentMovieDetailBinding
 import com.rafaelmardom.movies_and_shows_api.domain.GetMovieDetailUseCase
@@ -14,6 +15,7 @@ class MovieDetailFragment : Fragment() {
 
     private var viewModel: MovieDetailViewModel? = null
     private var binding: FragmentMovieDetailBinding? = null
+    private var skeleton: Skeleton? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +23,7 @@ class MovieDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMovieDetailBinding.inflate(inflater)
+        setupView()
         return binding?.root
     }
 
@@ -31,12 +34,22 @@ class MovieDetailFragment : Fragment() {
         viewModel?.loadMovieDetails(arguments?.getString("movieId") ?: "error")
     }
 
+    private fun setupView(){
+        binding?.apply {
+            skeleton = skeletonDetail
+        }
+    }
     private fun setupObservers() {
         val movieDetailsState = Observer<MovieDetailViewModel.MovieDetailState> { state ->
-            state.movieDetail?.let {
-                bind(it)
+            if (state.isLoading) {
+                skeleton?.showSkeleton()
+            } else {
+                skeleton?.showOriginal()
+                state.movieDetail?.let {
+                        bind(it)
+                    }
+                }
             }
-        }
         viewModel?.movieDetailState?.observe(viewLifecycleOwner, movieDetailsState)
     }
 

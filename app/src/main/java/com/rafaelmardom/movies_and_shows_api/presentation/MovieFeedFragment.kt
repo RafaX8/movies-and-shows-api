@@ -8,11 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.faltenreich.skeletonlayout.Skeleton
+import com.faltenreich.skeletonlayout.applySkeleton
+import com.rafaelmardom.movies_and_shows_api.R
 import com.rafaelmardom.movies_and_shows_api.databinding.FragmentMovieFeedBinding
 import com.rafaelmardom.movies_and_shows_api.presentation.adapter.MovieAdapter
 
 class MovieFeedFragment: Fragment() {
     private var binding: FragmentMovieFeedBinding? = null
+    private var skeleton: Skeleton? = null
     private val movieAdapter = MovieAdapter()
     private val viewModel by lazy {
         MovieFactory().getMoviesViewModel(requireContext())
@@ -44,17 +48,24 @@ class MovieFeedFragment: Fragment() {
                         LinearLayoutManager.VERTICAL,
                         false
                     )
-                movieAdapter.setItemClick {
-                    navigateToDetail(it)
-                }
+                skeleton = applySkeleton(R.layout.view_item_movie_feed, 5)
+
             }
         }
     }
 
     private fun setupObservers(){
         val movieFeedState = Observer<MovieFeedViewModel.MovieFeedState> {
+            if (it.isLoading) {
+                skeleton?.showSkeleton()
+            } else {
+                skeleton?.showOriginal()
+                movieAdapter.setItemClick { movie ->
+                    navigateToDetail(movie)
+                }
                 movieAdapter.setDataItems(it.moviesFeed)
             }
+        }
         viewModel.movieFeedData.observe(viewLifecycleOwner, movieFeedState)
     }
 
