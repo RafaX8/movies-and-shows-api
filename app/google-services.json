@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "133825233374",
+    "firebase_url": "https://moviesandshowsapi-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "moviesandshowsapi",
+    "storage_bucket": "moviesandshowsapi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133825233374:android:9c0f3df4a6140b177c5d4f",
+        "android_client_info": {
+          "package_name": "com.rafaelmardom.movies_and_shows_api"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133825233374-fnd7a56dqbiq8j3f2ep3b9sed3o01fa8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB31A7KD5Cx4p_n-YO69ya0nGLIio-1dm4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133825233374-fnd7a56dqbiq8j3f2ep3b9sed3o01fa8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

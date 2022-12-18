@@ -2,7 +2,7 @@ package com.rafaelmardom.movies_and_shows_api.domain
 
 class GetMoviesFeedUseCase (private val movieRepository: MovieRepository) {
 
-    fun execute () : List<MovieFeed> {
+    suspend fun execute () : List<MovieFeed> {
         return movieRepository.getAll().map {
             MovieFeed(
                 it.id,

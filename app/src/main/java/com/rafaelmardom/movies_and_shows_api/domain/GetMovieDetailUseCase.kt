@@ -2,7 +2,7 @@ package com.rafaelmardom.movies_and_shows_api.domain
 
 class GetMovieDetailUseCase (private val movieRepository: MovieRepository) {
 
-    fun execute (movieId: String) : MovieDetail {
+    suspend fun execute (movieId: String) : MovieDetail {
         val movie = movieRepository.getById(movieId)!!
 
         return MovieDetail(

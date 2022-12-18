@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
 }
@@ -59,6 +60,8 @@ dependencies {
     def room_version = "2.4.3"
     def skeletonVersion = '4.0.0'
 
+    def firebaseVersion = '31.0.2'
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
@@ -70,7 +73,10 @@ dependencies {
     implementation "com.google.code.gson:gson:$gsonVersion"
     // RetroFit-Gson converter
     implementation "com.squareup.retrofit2:converter-gson:$retrofitLatestVersion"
-
+    //Firebase
+    implementation platform("com.google.firebase:firebase-bom:$firebaseVersion")
+    //FirebaseRealtime
+    implementation 'com.google.firebase:firebase-database-ktx'
     // PRESENTATION LIBRARIES
     //Activities
     implementation "androidx.activity:activity:$activitiesVersion"
@@ -97,7 +103,6 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     //Skeleton
     implementation "com.faltenreich:skeletonlayout:$skeletonVersion"
-
     // TESTS
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

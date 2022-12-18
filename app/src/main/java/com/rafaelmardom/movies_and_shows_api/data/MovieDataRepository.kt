@@ -10,10 +10,11 @@ class MovieDataRepository(
     private val remoteSource: MovieRemoteDataSource
 ) : MovieRepository{
 
-    override fun getAll(): List<Movie> {
-
-        if (localSource.getAll().isNotEmpty()){
-            return localSource.getAll()
+    override suspend fun getAll(): List<Movie> {
+        // ONLY REMOTE YET --> Change when Local Data is finished
+        /*
+        return if (localSource.getMovies().isNotEmpty()){
+            localSource.getMovies()
         }else{
             var remoteList = remoteSource.getAll()
             localSource.saveAll(remoteList)
@@ -21,7 +22,9 @@ class MovieDataRepository(
         }
     }
 
-    override fun getById(movieId: String): Movie? {
-        return localSource.getById(movieId) ?: remoteSource.getById(movieId)
+    override suspend fun getById(movieId: String): Movie? {
+        // ONLY REMOTE YET --> Change when Local Data is finished
+        // return localSource.getMovieById(movieId) ?: remoteSource.getMovieById(movieId)
+        return remoteSource.getById(movieId)
     }
 }
