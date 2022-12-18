@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">movies-and-shows-api</string>
+    <string name="sample_title">Movie app: List of movies</string>
+    <string name="sample_genre">Made by Rafael Martín</string>
+    <string name="sample_rating">10</string>
+    <string name="sample_year">2002</string>
+    <string name="sample_plot">So there is snakes in a plane</string>
 </resources>

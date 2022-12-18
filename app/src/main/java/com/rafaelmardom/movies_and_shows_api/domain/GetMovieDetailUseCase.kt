@@ -5,7 +5,6 @@ class GetMovieDetailUseCase (private val movieRepository: MovieRepository) {
     suspend fun execute (movieId: String) : MovieDetail {
         val movie = movieRepository.getById(movieId)!!
 
-
         return MovieDetail(
             movie.id,
             movie.title,
