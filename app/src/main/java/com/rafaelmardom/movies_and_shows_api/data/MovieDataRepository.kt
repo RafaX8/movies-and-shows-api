@@ -1,6 +1,5 @@
 package com.rafaelmardom.movies_and_shows_api.data
 
-import android.util.Log
 import com.rafaelmardom.movies_and_shows_api.data.local.MovieLocalDataSource
 import com.rafaelmardom.movies_and_shows_api.data.remote.MovieRemoteDataSource
 import com.rafaelmardom.movies_and_shows_api.domain.Movie
@@ -14,10 +13,8 @@ class MovieDataRepository(
     override fun getAll(): List<Movie> {
 
         if (localSource.getAll().isNotEmpty()){
-            Log.d("@dev", "Local")
             return localSource.getAll()
         }else{
-            Log.d("@dev", "Remote")
             var remoteList = remoteSource.getAll()
             localSource.saveAll(remoteList)
             return remoteList
