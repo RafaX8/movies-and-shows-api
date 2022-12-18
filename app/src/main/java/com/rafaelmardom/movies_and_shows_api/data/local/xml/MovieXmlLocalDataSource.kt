@@ -7,7 +7,6 @@ import com.rafaelmardom.movies_and_shows_api.domain.Movie
 
 class MovieXmlLocalDataSource (
     private val sharedPreferences: SharedPreferences,
-    // private val serializer: KSerializer // yet to implement
 ) : MovieLocalDataSource{
 
     private val editor = sharedPreferences.edit()

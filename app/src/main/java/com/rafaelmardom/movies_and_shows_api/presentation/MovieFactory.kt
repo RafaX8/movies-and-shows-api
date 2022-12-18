@@ -1,10 +1,11 @@
 package com.rafaelmardom.movies_and_shows_api.presentation
 
 import android.content.Context
-import android.content.SharedPreferences
+import androidx.room.Room
+import com.rafaelmardom.app.data.db.AppDatabase
 import com.rafaelmardom.movies_and_shows_api.data.ApiClient
 import com.rafaelmardom.movies_and_shows_api.data.MovieDataRepository
-import com.rafaelmardom.movies_and_shows_api.data.local.xml.MovieXmlLocalDataSource
+import com.rafaelmardom.movies_and_shows_api.data.local.db.MovieDbLocalDataSource
 import com.rafaelmardom.movies_and_shows_api.data.remote.api.MovieApiRemoteDataSource
 import com.rafaelmardom.movies_and_shows_api.domain.GetMovieDetailUseCase
 import com.rafaelmardom.movies_and_shows_api.domain.GetMoviesFeedUseCase
@@ -32,13 +33,30 @@ class MovieFactory {
     // -------------------------------------------------------------------
     private fun getMovieRepository(context: Context): MovieRepository {
         return MovieDataRepository(
-            // Cambiar LocalSource a ROOM DB cuando esté correctamente mergeado
-            MovieXmlLocalDataSource(
-                context.getSharedPreferences("movies", Context.MODE_PRIVATE)
+            MovieDbLocalDataSource(
+                DataBaseSingleton.getInstance(
+                    context
+                ).MovieDao()
             ),
             MovieApiRemoteDataSource(
                 ApiClient()
             )
         )
+    }
+
+    // -------------------------------------------------------------------
+    object DataBaseSingleton {
+        private var db: AppDatabase? = null
+
+        fun getInstance (context: Context): AppDatabase{
+            if (db == null) {
+                db = Room.databaseBuilder(
+                    context,
+                    AppDatabase::class.java,
+                    "dbMovies"
+                ).build()
+            }
+            return db!!
+        }
     }
 }

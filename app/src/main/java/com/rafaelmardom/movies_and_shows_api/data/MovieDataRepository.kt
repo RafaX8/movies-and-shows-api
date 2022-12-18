@@ -11,10 +11,9 @@ class MovieDataRepository(
 ) : MovieRepository{
 
     override suspend fun getAll(): List<Movie> {
-        // ONLY REMOTE YET --> Change when Local Data is finished
-        /*
-        return if (localSource.getMovies().isNotEmpty()){
-            localSource.getMovies()
+
+        return if (localSource.getAll().isNotEmpty()){
+            localSource.getAll()
         }else{
             var remoteList = remoteSource.getAll()
             localSource.saveAll(remoteList)
@@ -23,8 +22,6 @@ class MovieDataRepository(
     }
 
     override suspend fun getById(movieId: String): Movie? {
-        // ONLY REMOTE YET --> Change when Local Data is finished
-        // return localSource.getMovieById(movieId) ?: remoteSource.getMovieById(movieId)
-        return remoteSource.getById(movieId)
+        return localSource.getById(movieId) ?: remoteSource.getById(movieId)
     }
 }

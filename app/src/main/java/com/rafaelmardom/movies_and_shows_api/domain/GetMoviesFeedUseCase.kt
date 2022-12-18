@@ -17,10 +17,8 @@ class GetMoviesFeedUseCase (private val movieRepository: MovieRepository) {
     data class MovieFeed (
         val id: String,
         val title: String,
-        // val plot: String, // We don't use that here
         val genre: String,
         val rating: Double,
-        // val year: String,
         val poster: String
     )
 }

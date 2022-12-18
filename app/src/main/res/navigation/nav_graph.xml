@@ -18,15 +18,11 @@
         android:id="@+id/movieDetail"
         android:name="com.rafaelmardom.movies_and_shows_api.presentation.MovieDetailFragment"
         tools:layout="@layout/fragment_movie_detail">
-
         <argument
             android:name="movieId"
             app:argType="string"
             app:nullable="false"
-            android:defaultValue="error">
-
-        </argument>
-
+            android:defaultValue="error"/>
     </fragment>
 
 </navigation>
