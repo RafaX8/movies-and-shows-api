@@ -4,6 +4,7 @@ plugins {
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -77,6 +78,9 @@ dependencies {
     implementation platform("com.google.firebase:firebase-bom:$firebaseVersion")
     //FirebaseRealtime
     implementation 'com.google.firebase:firebase-database-ktx'
+    // Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
     // PRESENTATION LIBRARIES
     //Activities
     implementation "androidx.activity:activity:$activitiesVersion"

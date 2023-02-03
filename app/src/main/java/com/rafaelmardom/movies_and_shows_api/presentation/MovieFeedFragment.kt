@@ -58,10 +58,12 @@ class MovieFeedFragment: Fragment() {
         val movieFeedState = Observer<MovieFeedViewModel.MovieFeedState> {
             if (it.isLoading) {
                 skeleton?.showSkeleton()
+                // throw Exception()
             } else {
                 skeleton?.showOriginal()
                 movieAdapter.setItemClick { movie ->
-                    navigateToDetail(movie)
+                    throw RuntimeException("Test Crash") // Force a crash
+                    //navigateToDetail(movie)
                 }
                 movieAdapter.setDataItems(it.moviesFeed)
             }

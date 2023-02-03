@@ -11,6 +11,7 @@ class MovieAdapter: RecyclerView.Adapter<MovieFeedViewHolder>() {
     private val dataItems = mutableListOf<GetMoviesFeedUseCase.MovieFeed>()
     private var itemClick: ((String) -> Unit)? = null
 
+
     fun setItemClick(onClick: (String) -> Unit) {
         this.itemClick = onClick
     }
